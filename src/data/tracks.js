@@ -18,33 +18,51 @@ export const tracks = [
     src: beautiful,
     author: 'Trinix ft Rushawn',
     thumbnail: trinix,
+    likesCount: 5,
+    comments: []
   },
   {
     title: 'Michael Jackson – We Are The World',
     src: world,
     author: 'Michael Jackson',
     thumbnail: jackson,
+    likesCount: 15560,
+    comments: []
+
   },
   {
     title: 'D’banj -Top Of The World',
     src: top,
     author: 'Dbanj',
     thumbnail: dbanj,
+    likesCount: 984,
+    comments: []
+
+
   },
   {
     title: 'Cinematic Time Lapse',
     src: cinematic,
     author: 'Lexin Music',
     thumbnail: lexin,
+    likesCount: 15,
+    comments: []
+
   },
   {
     title: 'Forest Lullaby',
     src: forest,
     author: 'Lesfm',
+    likesCount: 20,
+    comments: []
+
   },
   {
     title: 'The Podcast Intro',
     src: podcast,
     author: 'Music Unlimited',
+    likesCount: 47,
+    comments: []
+
   },
 ];

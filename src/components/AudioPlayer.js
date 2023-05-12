@@ -6,6 +6,7 @@ import DisplayTrack from './DisplayTrack';
 import Controls from './Controls';
 import ProgressBar from './ProgressBar';
 import TopBar from './TopBar';
+import Profile from "./Profile";
 
 const AudioPlayer = () => {
   // states
@@ -34,6 +35,7 @@ const AudioPlayer = () => {
     <>
       <TopBar />
       <div className="audio-player">
+        <Profile id={2}/>
         <div className="inner">
           <DisplayTrack
             {...{

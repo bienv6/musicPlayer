@@ -1,4 +1,7 @@
 import { BsMusicNoteBeamed } from 'react-icons/bs';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import {useEffect} from "react";
+import axios from "axios";
 
 const DisplayTrack = ({
   currentTrack,
@@ -13,6 +16,14 @@ const DisplayTrack = ({
     progressBarRef.current.max = seconds;
   };
 
+  const handleLikesClick = () =>
+    {
+        {currentTrack.likesCount ++}
+        console.log(`this is the current likes count ${currentTrack.likesCount ++}`)
+    };
+
+
+
   return (
     <div>
       <audio
@@ -21,6 +32,13 @@ const DisplayTrack = ({
         onLoadedMetadata={onLoadedMetadata}
         onEnded={handleNext}
       />
+      <div className="text">
+        <p className="title">{currentTrack.title}
+            <span className="likes1"><button onClick={handleLikesClick}><ThumbUpIcon/></button> {currentTrack.likesCount}</span>
+
+        </p>
+        <p>{currentTrack.author}</p>
+      </div>
       <div className="audio-info">
         <div className="audio-image">
           {currentTrack.thumbnail ? (
@@ -33,10 +51,7 @@ const DisplayTrack = ({
             </div>
           )}
         </div>
-        <div className="text">
-          <p className="title">{currentTrack.title}</p>
-          <p>{currentTrack.author}</p>
-        </div>
+
       </div>
     </div>
   );
