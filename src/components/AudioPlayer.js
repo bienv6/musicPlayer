@@ -7,6 +7,7 @@ import Controls from './Controls';
 import ProgressBar from './ProgressBar';
 import TopBar from './TopBar';
 import Profile from "./Profile";
+import Comments from "./Comments";
 
 const AudioPlayer = () => {
   // states
@@ -63,6 +64,7 @@ const AudioPlayer = () => {
             {...{ progressBarRef, audioRef, timeProgress, duration }}
           />
         </div>
+        <Comments currentTrack = {currentTrack}/>
       </div>
     </>
   );

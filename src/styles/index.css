@@ -142,3 +142,37 @@ button svg {
   margin: 0;
 }
 
+.accountIcon {
+  padding: 10px;
+}
+.profileContainer {
+  padding: 20px;
+  border-block: dashed;
+}
+.profileInfo {
+  padding: 20px;
+}
+.comments {
+  padding: 10px;
+  border-block: solid;
+}
+
+.commentContainer {
+  border-top: #fafafa;
+  padding: 20px;
+  border-block: dashed;
+  max-height: 300px;
+  overflow: hidden;
+
+}
+
+.commentInfo {
+}
+.commentedBy {
+  float: left;
+  width: 80px;
+}
+.comment {
+  margin-left: 100px;
+  text-align: left;
+}

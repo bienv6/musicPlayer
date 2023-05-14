@@ -1,8 +1,9 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import axios from "axios";
+import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 const Profile = (props) => {
-    console.log(`Signed In user id: ${props.id}`)
 
     let profileId = props.id;
 
@@ -14,31 +15,38 @@ const Profile = (props) => {
         roles: 'temp role'
     }
     const [currentProfile, setCurrentProfile] = useState(defaultProfile);
+    const [signedIn, setSignedIn] = useState(false);
     const baseUrl = `http://localhost:8081/rest/profile/${profileId}`;
 
 
-    useEffect(() => {
+    function getUserInfo(profileId) {
         axios.get(baseUrl)
             .then((response) => {
                 setCurrentProfile(response.data);
+                setSignedIn(true);
                 console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
             });
-    }, [props.id, baseUrl]);
+    }
+
+    const handleSignIn = () => {
+
+    }
+
+    const handleSignOut = () => {
+
+    }
 
 
     return (
         <div className="profileContainer">
-            <div className="profileIcon"><p>insert profile pic here</p></div>
             <div className="profileInfo">
-                <ul>
-                    <li>${currentProfile.name}</li>
-                    <li>${currentProfile.email}</li>
-                    <li>${currentProfile.mobNo}</li>
-                    <li>${currentProfile.address}</li>
-                </ul>
+                <span className="accountIcon">{signedIn ? <button name="signOutBtn" disabled={signedIn}><AccountBoxIcon/></button> :
+                    <button name="signInBtn" disabled={!signedIn}><AccountBoxOutlinedIcon/></button>}</span>
+                {signedIn ? `Hi ${currentProfile.name}` : 'Please sign In'}
+
             </div>
         </div>
     )

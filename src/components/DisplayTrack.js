@@ -1,7 +1,6 @@
 import { BsMusicNoteBeamed } from 'react-icons/bs';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import {useEffect} from "react";
-import axios from "axios";
+import {useEffect, useState} from "react";
 
 const DisplayTrack = ({
   currentTrack,
@@ -15,11 +14,20 @@ const DisplayTrack = ({
     setDuration(seconds);
     progressBarRef.current.max = seconds;
   };
+  const [liked,setLiked] = useState(false);
 
-  const handleLikesClick = () =>
+  const handleLikesClick = (e, liked) =>
+
     {
-        {currentTrack.likesCount ++}
-        console.log(`this is the current likes count ${currentTrack.likesCount ++}`)
+        // MAKE API CALL TO UPDATE SONG SERVICE LIKES
+        if(liked !== true){
+            currentTrack.likesCount++;
+            console.log(`this is the current likes count ${currentTrack.likesCount}`)
+            console.log(`like button is now disabled: ${e.target}`)
+            setLiked(true);
+
+        }
+
     };
 
 
@@ -34,8 +42,7 @@ const DisplayTrack = ({
       />
       <div className="text">
         <p className="title">{currentTrack.title}
-            <span className="likes1"><button onClick={handleLikesClick}><ThumbUpIcon/></button> {currentTrack.likesCount}</span>
-
+            <span className="likes1"><button onClick={handleLikesClick} disabled={liked} name="likedBtn"><ThumbUpIcon/></button> {currentTrack.likesCount}</span>
         </p>
         <p>{currentTrack.author}</p>
       </div>
