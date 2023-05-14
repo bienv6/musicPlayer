@@ -1,20 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
-const  Comments = (props) => {
+const Comments = (props) => {
     let currentTrack = props.currentTrack;
 
-  const [ comments ,setComments] = useState([])
+    const [comments, setComments] = useState([]);
 
     useEffect(() => {
         axios.get(`http://localhost:8080/rest/comment/${currentTrack.id}`)
             .then((response) => {
-            setComments(response.data);
-            console.log(`comments on this song are: ${response.data}`)
-        })
-            .catch(error => console.log("Error Loading Comments"))
+                setComments(response.data);
+                console.log(`comments on this song are: ${response.data}`)
+            })
+            .catch(error => console.log(`Error Loading Comments:  ${error}`))
 
-    }, [currentTrack])
+    }, [])
 
     return (
         <>
