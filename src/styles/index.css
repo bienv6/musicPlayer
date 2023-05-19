@@ -150,8 +150,10 @@ button svg {
   border-block: dashed;
 }
 .profileInfo {
-  padding: 20px;
+  padding-right: 20px;
+  display: block;
 }
+
 .comments {
   padding: 10px;
   border-block: solid;
@@ -165,6 +167,9 @@ button svg {
   overflow: hidden;
 
 }
+.footer {
+  padding: 20px;
+}
 
 .commentInfo {
 }
@@ -173,6 +178,17 @@ button svg {
   width: 80px;
 }
 .comment {
-  margin-left: 100px;
+  margin-left: 50px;
   text-align: left;
+}
+.addComment {
+  width: 100%;
+  padding-right: 20px;
+}
+
+.signedInUser {
+  padding-left: 10px;
+}
+.icon {
+  float: left;
 }

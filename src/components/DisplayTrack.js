@@ -21,7 +21,7 @@ const DisplayTrack = ({
         if (liked !== true) {
             currentTrack.likesCount++;
             console.log(`this is the current likes count ${currentTrack.likesCount}`)
-            console.log(`like button is now disabled: ${e.target}`)
+            console.log(`like button is now disabled`)
             setLiked(true);
 
         }

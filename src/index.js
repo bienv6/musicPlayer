@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import AudioPlayer from './components/AudioPlayer';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 // css
 import './styles/index.css';

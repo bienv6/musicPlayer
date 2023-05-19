@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import {createContext, useRef, useState} from 'react';
 import { tracks } from '../data/tracks';
 
 // import components
@@ -9,7 +9,12 @@ import TopBar from './TopBar';
 import Profile from "./Profile";
 import Comments from "./Comments";
 
-const AudioPlayer = () => {
+export const UserContext = createContext();
+
+
+const AudioPlayer = defaultValue => {
+
+  const [loggedIn, setLoggedIn] = useState({"signedIn": false, "profile":{}});
   // states
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(
@@ -33,10 +38,11 @@ const AudioPlayer = () => {
   };
 
   return (
+      <UserContext.Provider value={[loggedIn,setLoggedIn]}>
     <>
       <TopBar />
       <div className="audio-player">
-        <Profile id={2}/>
+        <Profile/>
         <div className="inner">
           <DisplayTrack
             {...{
@@ -64,9 +70,10 @@ const AudioPlayer = () => {
             {...{ progressBarRef, audioRef, timeProgress, duration }}
           />
         </div>
-        <Comments currentTrack = {currentTrack}/>
+        {/*<Comments currentTrack = {currentTrack}/>*/}
       </div>
     </>
+      </UserContext.Provider>
   );
 };
 export default AudioPlayer;
